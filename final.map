@@ -1,0 +1,207 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+SRAM             0x20000000         0x00020000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD GPIO_prog.o
+LOAD STM32_F446reStartup.o
+LOAD RCC_Program.o
+
+.Text           0x08000000      0xb50
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x1c4 STM32_F446reStartup.o
+                0x08000000                Vectors
+ *(.text)
+ .text          0x080001c4       0x3c main.o
+                0x080001c4                main
+ .text          0x08000200      0x378 GPIO_prog.o
+                0x08000200                GPIO_u8PinInit
+                0x0800043c                GPIO_u8SetPinValue
+                0x080004cc                GPIO_u8TogglePinValue
+                0x08000524                GPIO_u8ReadPinValue
+ .text          0x08000578       0x94 STM32_F446reStartup.o
+                0x08000578                Reset_Handler
+                0x08000604                EXTI2_IRQHandler
+                0x08000604                TIM8_CC_IRQHandler
+                0x08000604                DebugMon_Handler
+                0x08000604                FMPI2C1_EV_IRQHandler
+                0x08000604                SPI4_IRQHandler
+                0x08000604                TIM1_CC_IRQHandler
+                0x08000604                DMA2_Stream5_IRQHandler
+                0x08000604                HardFault_Handler
+                0x08000604                DMA1_Stream5_IRQHandler
+                0x08000604                SysTick_Handler
+                0x08000604                PVD_IRQHandler
+                0x08000604                SDIO_IRQHandler
+                0x08000604                TAMP_STAMP_IRQHandler
+                0x08000604                PendSV_Handler
+                0x08000604                NMI_Handler
+                0x08000604                CAN2_RX1_IRQHandler
+                0x08000604                EXTI3_IRQHandler
+                0x08000604                TIM1_UP_TIM10_IRQHandler
+                0x08000604                TIM8_UP_TIM13_IRQHandler
+                0x08000604                I2C3_ER_IRQHandler
+                0x08000604                EXTI0_IRQHandler
+                0x08000604                I2C2_EV_IRQHandler
+                0x08000604                DMA1_Stream2_IRQHandler
+                0x08000604                CAN1_RX0_IRQHandler
+                0x08000604                FPU_IRQHandler
+                0x08000604                OTG_HS_WKUP_IRQHandler
+                0x08000604                UsageFault_Handler
+                0x08000604                CAN2_SCE_IRQHandler
+                0x08000604                DMA2_Stream2_IRQHandler
+                0x08000604                SPI1_IRQHandler
+                0x08000604                TIM6_DAC_IRQHandler
+                0x08000604                TIM1_BRK_TIM9_IRQHandler
+                0x08000604                DCMI_IRQHandler
+                0x08000604                CAN2_RX0_IRQHandler
+                0x08000604                DMA2_Stream3_IRQHandler
+                0x08000604                SAI2_IRQHandler
+                0x08000604                USART6_IRQHandler
+                0x08000604                TIM1_TRG_COM_TIM11_IRQHandl
+                0x08000604                USART3_IRQHandler
+                0x08000604                RTC_Alarm_IRQHandler
+                0x08000604                TIM8_TRG_COM_TIM14_IRQHandl
+                0x08000604                CAN1_RX1_IRQHandler
+                0x08000604                UART5_IRQHandler
+                0x08000604                DMA2_Stream0_IRQHandler
+                0x08000604                TIM4_IRQHandler
+                0x08000604                QUADSPI_IRQHandler
+                0x08000604                I2C1_EV_IRQHandler
+                0x08000604                DMA1_Stream6_IRQHandler
+                0x08000604                DMA1_Stream1_IRQHandler
+                0x08000604                UART4_IRQHandler
+                0x08000604                TIM3_IRQHandler
+                0x08000604                RCC_IRQHandler
+                0x08000604                TIM8_BRK_TIM12_IRQHandler
+                0x08000604                Default_Handler
+                0x08000604                CEC_IRQHandler
+                0x08000604                EXTI15_10_IRQHandler
+                0x08000604                ADC_IRQHandler
+                0x08000604                DMA1_Stream7_IRQHandler
+                0x08000604                TIM7_IRQHandler
+                0x08000604                CAN2_TX_IRQHandler
+                0x08000604                TIM5_IRQHandler
+                0x08000604                DMA2_Stream7_IRQHandler
+                0x08000604                I2C3_EV_IRQHandler
+                0x08000604                EXTI9_5_IRQHandler
+                0x08000604                RTC_WKUP_IRQHandler
+                0x08000604                SPDIF_RX_IRQHandler
+                0x08000604                SPI2_IRQHandler
+                0x08000604                OTG_HS_EP1_IN_IRQHandler
+                0x08000604                MemManage_Handler
+                0x08000604                DMA1_Stream0_IRQHandler
+                0x08000604                CAN1_TX_IRQHandler
+                0x08000604                SVC_Handler
+                0x08000604                FMPI2C1_ER_IRQHandler
+                0x08000604                EXTI4_IRQHandler
+                0x08000604                OTG_HS_EP1_OUT_IRQHandler
+                0x08000604                WWDG_IRQHandler
+                0x08000604                TIM2_IRQHandler
+                0x08000604                OTG_FS_WKUP_IRQHandler
+                0x08000604                OTG_HS_IRQHandler
+                0x08000604                EXTI1_IRQHandler
+                0x08000604                USART2_IRQHandler
+                0x08000604                I2C2_ER_IRQHandler
+                0x08000604                DMA2_Stream1_IRQHandler
+                0x08000604                CAN1_SCE_IRQHandler
+                0x08000604                FLASH_IRQHandler
+                0x08000604                DMA2_Stream4_IRQHandler
+                0x08000604                BusFault_Handler
+                0x08000604                USART1_IRQHandler
+                0x08000604                OTG_FS_IRQHandler
+                0x08000604                SPI3_IRQHandler
+                0x08000604                DMA1_Stream4_IRQHandler
+                0x08000604                I2C1_ER_IRQHandler
+                0x08000604                FMC_IRQHandler
+                0x08000604                DMA2_Stream6_IRQHandler
+                0x08000604                SAI1_IRQHandler
+                0x08000604                DMA1_Stream3_IRQHandler
+ .text          0x0800060c      0x53c RCC_Program.o
+                0x0800060c                RCC_VoidSetClkSts
+                0x080007f0                RCC_VoidSetSysClk
+                0x0800089c                RCC_VoidPLLConfig
+                0x0800097c                RCC_AHB1EnableClock
+                0x080009a8                RCC_AHB1DisableClock
+                0x080009d8                RCC_AHB2EnableClock
+                0x08000a04                RCC_AHB2DisableClock
+                0x08000a34                RCC_AHB3EnableClock
+                0x08000a60                RCC_AHB3DisableClock
+                0x08000a90                RCC_APB1EnableClock
+                0x08000abc                RCC_APB1DisableClock
+                0x08000aec                RCC_APB2EnableClock
+                0x08000b18                RCC_APB2DisableClock
+ *(.rodata)
+ .rodata        0x08000b48        0x7 main.o
+                0x08000b50                        . = ALIGN (0x4)
+ *fill*         0x08000b4f        0x1 
+                0x08000b50                        _etext = .
+
+.glue_7         0x08000b50        0x0
+ .glue_7        0x08000b50        0x0 linker stubs
+
+.glue_7t        0x08000b50        0x0
+ .glue_7t       0x08000b50        0x0 linker stubs
+
+.vfp11_veneer   0x08000b50        0x0
+ .vfp11_veneer  0x08000b50        0x0 linker stubs
+
+.v4_bx          0x08000b50        0x0
+ .v4_bx         0x08000b50        0x0 linker stubs
+
+.iplt           0x08000b50        0x0
+ .iplt          0x08000b50        0x0 main.o
+
+.rel.dyn        0x08000b50        0x0
+ .rel.iplt      0x08000b50        0x0 main.o
+
+.data           0x20000000       0x20 load address 0x08000b50
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 main.o
+ .data          0x20000000       0x20 GPIO_prog.o
+ .data          0x20000020        0x0 STM32_F446reStartup.o
+ .data          0x20000020        0x0 RCC_Program.o
+                0x20000020                        . = ALIGN (0x4)
+                0x20000020                        _edata = .
+
+.igot.plt       0x20000020        0x0 load address 0x08000b70
+ .igot.plt      0x20000020        0x0 main.o
+
+.bss            0x20000020        0x0 load address 0x08000b70
+                0x20000020                        _sbss = .
+ *(.bss)
+ .bss           0x20000020        0x0 main.o
+ .bss           0x20000020        0x0 GPIO_prog.o
+ .bss           0x20000020        0x0 STM32_F446reStartup.o
+ .bss           0x20000020        0x0 RCC_Program.o
+                0x20000020                        . = ALIGN (0x4)
+                0x20000020                        _ebss = .
+OUTPUT(final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x44
+ .comment       0x00000000       0x44 main.o
+                                 0x45 (size before relaxing)
+ .comment       0x00000044       0x45 GPIO_prog.o
+ .comment       0x00000044       0x45 STM32_F446reStartup.o
+ .comment       0x00000044       0x45 RCC_Program.o
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e main.o
+ .ARM.attributes
+                0x0000002e       0x2e GPIO_prog.o
+ .ARM.attributes
+                0x0000005c       0x2e STM32_F446reStartup.o
+ .ARM.attributes
+                0x0000008a       0x2e RCC_Program.o

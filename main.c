@@ -25,9 +25,7 @@
 
 #include "GPIO_prv.h"
 #include "GPIO_interface.h"
-
-const char x ; 
-
+ 
 int main(void)
 {
 	
@@ -52,8 +50,3 @@ int main(void)
 	for(;;);
 }
 
-void MemManage_Handler(void)
-{
-	
-	
-}
