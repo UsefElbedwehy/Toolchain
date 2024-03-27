@@ -683,7 +683,7 @@ With redirection into a file:
 
 > $<t style="color:green"> arm-none-eabi-nm final.elf >symbolTable.txt </t>
 
-<h3 style = "color:orange">$ Steps to download code using OpenOCD</h3>
+<h3 style = "color:orange"> Steps to download code using OpenOCD</h3>
 
 <ol>
 
@@ -857,10 +857,10 @@ to remove breakpoint:
 
 <h3 style ="color:blue">Telnet</h3>
 
-open <t style="color:cyan">PUTTY</t>
++ Open <t style="color:cyan">PUTTY</t>
 
-choose <t style="color:cyan">Telnet</t>
++ choose <t style="color:cyan">Telnet</t>
 
-port number is <t style="color:cyan">4444</t>
++ port number is <t style="color:cyan">4444</t>
 
-Then press <t style="color:cyan">Open</t>
++ Then press <t style="color:cyan">Open</t>
